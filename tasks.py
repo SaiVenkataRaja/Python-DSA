@@ -260,18 +260,189 @@
 # print(f"The highest number in the list is {highest}")
 
 # Task 15 : List : removing duplicates
-lst = []
-uniqlist = []
-while True:
-    entry = input("Enter a number ('stop' to finish) : ")
-    if entry == 'stop'.lower():
-        break
-    num = int(entry)
-    if num < 0 :
-        continue
-    else:
-        lst.append(num)
-    if num not in uniqlist:
-            uniqlist.append(num)
-print(lst)
-print(uniqlist)
+# lst = []
+# uniqlist = []
+# while True:
+#     entry = input("Enter a number ('stop' to finish) : ")
+#     if entry == 'stop'.lower():
+#         break
+#     num = int(entry)
+#     if num < 0 :
+#         continue
+#     else:
+#         lst.append(num)
+#     if num not in uniqlist:
+#             uniqlist.append(num)
+# print(lst)
+# print(uniqlist)
+
+#Task 15.1 
+# n = int(input("Enter a number for count : "))
+# nums = []
+# evens = []
+# odds = []
+# for i in range(n):
+#     num = int(input("Enter the number : "))
+#     nums.append(num)
+# print(nums)
+# for i in nums :
+#     if i % 2 == 0 and i not in evens:
+#         evens.append(i)
+#     else:
+#         if i not in odds:
+#             odds.append(i)
+# print(f"Evens are {evens}")
+# print(f"Odds are {odds}")
+
+#Task 15.2 : nested lists
+# nested_list = []
+# while True:
+#     entry = input("Enter a number ('stop' to exit) : ")
+#     if entry == 'stop'.lower():
+#         break
+#     num = int(entry)
+#     for i in nested_list:
+#         nested_list.append(i)
+# print(nested_list)
+
+# nested_list = [[1,2,3], [4,5,6],[7,8,9]]
+# # print(nested_list[0][0])
+# # print(nested_list[0][1])
+# # print(nested_list[0][2])
+# # print(nested_list[1][0])
+# # print(nested_list[1][1])
+# # print(nested_list[1][2])
+# # print(nested_list[2][0])
+# # print(nested_list[2][1])
+# # print(nested_list[2][2])
+# for i in nested_list:
+#     for j in i:
+#         print(j)
+
+#sum of all elements in a list 
+# nested_list = [[1, 2], [3, 4], [5, 6]]
+# sum = 0 
+# for i in nested_list:
+#     for j in i:
+#         sum = sum + j
+# print(f"The sum of all the elements in the list : {sum}")
+
+#Find the largest
+# nested_list = [[12, 5], [7, 20], [3, 18]]
+# max = 0
+# for i in nested_list:
+#     for j in i:
+#         if j > max:
+#             max = j
+# print(max)
+
+#Task 16 : Tuples
+# Create a tuple with numbers from 1 to 10 and print: The first 3 elements, The last 2 elements, The middle element
+# tup = (1,2,3,4,5,6,7,8,9,10)
+# print(tup[:3])
+# print(tup[-2:])
+# length = len(tup)
+# print(tup[length // 2])
+
+# info = ("Sai", 24, "Developer", "Hyderabad")
+# name, age, role, location = info
+# print(f"Name is {name}")
+# print(f"Age is {age}")
+# print(f"Role is {role}")
+# print(f"Location is {location}")
+
+# #Write a program to count how many times the number 5 appears in this tuple:
+# nums = (5, 1, 5, 3, 5, 7, 8, 5)
+# print(nums.count(5))
+
+# #Convert it into a list, add 60, then convert it back to a tuple and print.
+# sample = (10, 20, 30, 40, 50)
+# list_sample = list(sample)
+# print(list_sample)
+# list_sample.append(60)
+# print(list_sample)
+# sample = tuple(list_sample)
+# print(sample)
+
+#Task 17 : 
+#Create a dictionary called student with these keys: "name": your name, "id": any 4-digit number ,"branch": any string, "marks": a list of 3 integers
+#Then, do the following:Print the student's name and branch. Print the average of the marks.
+# Add a new key "result" with value "Pass" if average >= 40, else "Fail".Print the full dictionary.
+# student = {
+#     "name" : "Sai Venkata Raja",
+#     "id" : 4017,
+#     "branch" : "Mechanical Engineering",
+#     "marks" : [75,25,60]
+# }
+# print(f"The Student's name is {student["name"]}")
+# print(f"The branch is {student["branch"]}")
+
+# sum = 0
+# for i in student["marks"]:
+#     sum = sum + i
+# print("The Total marks are ", sum)
+# avg = sum / len(student["marks"])
+# average = round(avg, 2)
+# if average >= 40:
+#     student["Result"] = "Pass"
+# else:
+#     student["Result"] = "Fail"
+
+# print(student)
+
+#Task 17.2 
+# Print only the keys
+# Print only the values
+# Print each key-value pair
+# Get a value using .get()
+# Add a new key "college": "IIT" using .update()
+# student = {
+#     "name": "Ravi",
+#     "age": 22,
+#     "course": "B.Tech",
+#     "grades": [85, 90, 92]
+# }
+# print(student.keys())
+# print(student.values())
+# print(student.items())
+# print(student.get("course"))
+# student.update({"college": "IIT"})
+# print(student)
+
+#Task 17.3 : Nested Dictionaries 
+#Print the name and age of each student, Print the total marks of each student,Add a key "result": "Pass" to each student if their average is >= 40.
+#Print the updated dictionary.
+students = {
+    "student1": {
+        "name": "Ravi",
+        "age": 22,
+        "marks": [80, 85, 90]
+        },
+    "student2": {
+        "name": "Priya",
+        "age": 21,
+        "marks": [70, 75, 80]
+        },
+    "student3": {
+        "name": "Kiran",
+        "age": 23,
+        "marks": [60, 65, 70]
+        }
+}
+# for i in students:
+#     print(f"Details of {i} : ")
+#     print("Name : ", students[i]["name"])
+#     print("Age : ", students[i]["age"])
+
+# for i in students: 
+#     sum = 0
+#     for j in students[i]["marks"]: 
+#             sum = sum +j 
+#     print(f"The Total marks of {i} : {sum}")
+#     if (sum / len(students[i]["marks"])) >= 40:
+#             students[i]["Result"] = "Pass"
+#     else:
+#             students[i]["Result"] = "Fail"
+# print(students)
+            
+         
