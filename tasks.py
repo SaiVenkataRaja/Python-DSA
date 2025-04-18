@@ -411,24 +411,37 @@
 
 #Task 17.3 : Nested Dictionaries 
 #Print the name and age of each student, Print the total marks of each student,Add a key "result": "Pass" to each student if their average is >= 40.
-#Print the updated dictionary.
-students = {
-    "student1": {
-        "name": "Ravi",
-        "age": 22,
-        "marks": [80, 85, 90]
-        },
-    "student2": {
-        "name": "Priya",
-        "age": 21,
-        "marks": [70, 75, 80]
-        },
-    "student3": {
-        "name": "Kiran",
-        "age": 23,
-        "marks": [60, 65, 70]
-        }
-}
+# #Print the updated dictionary.
+# students = {
+#     "student1": {
+#         "name": "Ravi",
+#         "age": 22,
+#         "marks": [80, 85, 90]
+#         },
+#     "student2": {
+#         "name": "Priya",
+#         "age": 21,
+#         "marks": [70, 75, 80]
+#         },
+#     "student3": {
+#         "name": "Kiran",
+#         "age": 23,
+#         "marks": [60, 65, 70]
+#         }
+# }
+# for i in students:
+#     print(f"Details of {i} : ")
+#     print("Name : ", students[i]["name"])
+#     print("Age : ", students[i]["age"])
+# for i in students:
+#     total = sum(students[i]["marks"])
+#     print(f"The Total marks of {i} : {total}")
+#     avg = total / len(students[i]["marks"])
+#     students[i]["Result"] = 'Pass' if avg >= 40 else "Fail"
+# print(students)
+
+
+
 # for i in students:
 #     print(f"Details of {i} : ")
 #     print("Name : ", students[i]["name"])
@@ -445,4 +458,96 @@ students = {
 #             students[i]["Result"] = "Fail"
 # print(students)
             
-         
+#Task 17.4 : Nested Dictionaries
+# college = {
+#     "CSE": {
+#         "s101": {
+#             "name": "Arjun",
+#             "year": 2, 
+#             "marks": [88, 76, 92]
+#             },
+#         "s102": {
+#             "name": "Meena",
+#             "year": 1, 
+#             "marks": [67, 72, 70]
+#             }
+#     },
+#     "ECE": {
+#         "s201": {
+#             "name": "Ravi",
+#             "year": 3,
+#             "marks": [50, 65, 80]
+#             },
+#         "s202": {
+#             "name": "Divya", 
+#             "year": 2, 
+#             "marks": [90, 85, 95]
+#             }
+#     }
+# }
+# for dept in college:
+#     print("The Department is ", dept)
+#     for id in college[dept]:
+#         student = college[dept][id]
+#         print("Name is ", student["name"])
+#         print("Year is ", student["year"])
+#         total = sum(student["marks"])
+#         print("The Total marks are ", total)
+#         avg = total / len(student["marks"])
+#         student["Result"] = "Pass" if avg >= 40 else "Fail"
+# print(college)
+
+#Task 17.5 : Topper Finder 
+college = {
+    "CSE": {
+        101: {"name": "Alice", "year": 2, "marks": [88, 92, 79]}, #259
+        102: {"name": "Bob", "year": 2, "marks": [90, 85, 93]} #268
+    },
+    "ECE": {
+        201: {"name": "Charlie", "year": 3, "marks": [65, 70, 72]}, #207
+        202: {"name": "David", "year": 3, "marks": [80, 88, 91]} #259
+    }
+}
+
+
+#Minor issues in the code
+# for dept in college:
+#     print(f"The Department : {dept}")
+#     for sid in college[dept]:
+#         student = college[dept][sid]
+#         #print(student["marks"])
+#         total = sum(student["marks"])
+#         #print(f"The Total marks of {student["name"]} are {total}")
+#         highest = 0 
+#         if sum(student["marks"]) > highest:
+#             highest = student["name"]
+#     print(f"The Topper is : {highest}")
+#     print(f"The Department is : ", [dept])
+#     print(f"The Id is {college[dept]}")
+#     avg = total / len(student["marks"])
+#     print(f"The Average is {round(avg, 2)}")
+
+#efficient one 
+
+# topper_name = ""
+# topper_avg = 0
+# topper_dept = ""
+# topper_id = 0
+# for dept in college:
+#     for id in college[dept]:
+#         student = college[dept][id]
+#         #print(student)
+#         total = sum(college[dept][id]["marks"])
+#         avg = total / len(student["marks"])
+#         print(f"Student : {student['name']}, Total : {total}, Average : {round(avg, 2)}")
+#         if avg > topper_avg:
+#             topper_avg = avg
+#             topper_name = student["name"]
+#             topper_dept = dept
+#             topper_id = id 
+# print()
+# print(f"Name : {topper_name}")
+# print(f"ID : {topper_id}")
+# print(f"Department : {topper_dept}")
+# print(f"Average : {round(topper_avg, 2)}")
+

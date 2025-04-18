@@ -232,9 +232,52 @@
 
 # Nested Dictionaries : means a dictionary inside another dictionary 
 # These are helpful when representing complex data structures like group of students or multiple records 
-students = {
-    "student1": {"name": "Ravi", "age": 22, "marks": [80, 85, 90]},
-    "student2": {"name": "Priya", "age": 21, "marks": [70, 75, 80]},
-    "student3": {"name": "Kiran", "age": 23, "marks": [60, 65, 70]}
-}
+# students = {
+#     "student1": {
+#         "name": "Ravi",
+#         "age": 22, 
+#         "marks": [80, 85, 90]
+#         },
+#     "student2": {
+#         "name": "Priya",
+#         "age": 21,
+#         "marks": [70, 75, 80]
+#         },
+#     "student3": {
+#         "name": "Kiran",
+#         "age": 23, 
+#         "marks": [60, 65, 70]
+#         }
+# }
 
+
+# ---------------------------Sets ------------------------
+# Set is an unordered, unindexed and mutable collection of unique items (similar to mathematical sets)
+# it is mainly used to store non-duplicate values and perform operations like union, intersection, difference etc
+fruits = {'apple','apple', 'banana', 'mango'}
+nums = set([1,2,4,5]) # using set constructor 
+#sets automatically removes duplicates and we cannot access elements by index
+print(fruits)
+s= {1,2,3,4}
+s.add(5) #adds 5 to set
+print(s)
+
+s.remove(2) #removes 2 from set
+print(s)
+
+s.pop() #removes random item
+print(s)
+
+s.clear() #empties the set
+print(s)
+
+#set operations like in math 
+a = {1,2,3,5}
+b = {4,5,6}
+print(a.union(b))
+print(a.intersection(b))
+print(a.difference(b))
+print(a.symmetric_difference(b))
+#membership testing
+if 3 in a:
+    print("3 is in the set")
