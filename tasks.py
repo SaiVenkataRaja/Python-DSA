@@ -551,3 +551,44 @@ college = {
 # print(f"Department : {topper_dept}")
 # print(f"Average : {round(topper_avg, 2)}")
 
+#Task 18 : Sets 
+# Unique Vowels : Take a string input and print all the unique vowels present in it using a set.
+# alphs = set(input("Enter a word : ").lower())
+# vowels = {'a', 'e', 'i','o', 'u'}
+# filtred = set()
+# for i in alphs:
+#     if i in vowels:
+#         filtred.add(i)
+# print(filtred)
+
+#Task 18.2 Removing duplicates 
+#Take a list of numbers with duplicates and print a new list with all duplicates removed using sets.
+# lst = [1,2,3,2,1,2,3,2,1,2,2,3,3,2,1]
+# new_lst = set()
+# for i in lst:
+#     if i not in new_lst:
+#         new_lst.add(i)
+# print(new_lst)
+
+# Task 18.3 : Common elements between two lists 
+#Take two lists and print the common elements (intersection) using set operations. 
+# lst1 = set([1,2,3,4,5])
+# lst2 = set([2,3,4,5,6])
+# print(lst1.intersection(lst2))
+
+#Task 18.4 : Studenets who attended both events 
+# Find students who attended both events.
+# Find students who attended only one of the events.
+# Find students who attended at least one event.
+# event1 = {"Alice", "Bob", "Charlie"}
+# event2 = {"David", "Charlie", "Alice"}
+# print(f"Students who attended both events : {event1.intersection(event2)}")
+# print(f"Students who attended who only attended one event : {event1.difference(event2)}")
+# print(f"students who attended at least one event : {event1.union(event2)}")
+
+#Task 18.5 : count unique words 
+line = "Take two lists and print the common elements intersection using set operations "
+words = line.lower().split()
+unique_words = set(words)
+print(unique_words)
+print(len(unique_words))
