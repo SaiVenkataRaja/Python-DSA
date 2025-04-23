@@ -145,4 +145,22 @@ class Book:
     def display_info(self):
         print(f"Title : {self.title} \nAuthor : {self.author} \nYear : {self.year}")
 class library_id(Book):
-    
+    def __init__(self, title, author, year, library_id, available):
+        super().__init__(title, author, year)
+        self.library_id = library_id
+        self.available = available
+
+    def display_info(self):
+        super().display_info()
+        # if self.available == True:
+        #     self.available = "Available"
+        # else:
+        #     self.available = "Not Available"
+        status = "Available" if self.available else "Not Available"
+        print(f"Library ID : {self.library_id} \nStatus : {status}")
+
+LibraryBook = library_id("The Wet Pillow", "Sai Venkata Raja", 2026, 1234, available=True)
+LibraryBook2 = library_id("The Endless Whispers", "Abdul Sameer", 2026, 5678,available=True)
+LibraryBook.display_info()
+print()
+LibraryBook2.display_info()
