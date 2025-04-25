@@ -872,3 +872,6 @@ from datetime import datetime
 
 #Print the current time only in the format HH:MM:SS AM/PM
 # print(now.strftime("%H:%M:%S %p"))
+
+
+# END OF TASKS (PYTHON BASICS)

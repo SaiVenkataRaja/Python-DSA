@@ -380,16 +380,16 @@ students.append(new_student)
 
 # Write a program to find the most frequent element in a list, but the catch is: if there are multiple elements with the same maximum frequency, return the smallest element. If the list is empty, return a message saying so.
 
-data = [3, 1, 4, 1, 5, 5, 5, 1, 2, 2, 3, 4, 3, 2, 1, 2, 4, 3, 2, 1]
-new_data = {}
-most_repeat = []
-count = 1
-for i in data:
-    #print(i)
-    if i not in new_data:
-        new_data[i] = count
-    else :
-        new_data[i] += 1 
-print(new_data)
+# data = [3, 1, 4, 1, 5, 5, 5, 1, 2, 2, 3, 4, 3, 2, 1, 2, 4, 3, 2, 1]
+# new_data = {}
+# most_repeat = []
+# count = 1
+# for i in data:
+#     #print(i)
+#     if i not in new_data:
+#         new_data[i] = count
+#     else :
+#         new_data[i] += 1 
+# print(new_data)
 # for j in new_data:
 #     print(j)

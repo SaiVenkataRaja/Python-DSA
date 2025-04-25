@@ -536,3 +536,5 @@
 #Check Version : pip --version
 #List installed Packages : pip list
 #Uninstall a package : pip unistall requests
+
+# END OF PYTHON BASICS

@@ -137,30 +137,169 @@
 # mgr.show_details()
 
 # Challenge 6.3 : Book & Library 
-class Book:
-    def __init__(self, title, author, year):
-        self.title = title
-        self.author = author
-        self.year = year 
-    def display_info(self):
-        print(f"Title : {self.title} \nAuthor : {self.author} \nYear : {self.year}")
-class library_id(Book):
-    def __init__(self, title, author, year, library_id, available):
-        super().__init__(title, author, year)
-        self.library_id = library_id
-        self.available = available
+# class Book:
+#     def __init__(self, title, author, year):
+#         self.title = title
+#         self.author = author
+#         self.year = year 
+#     def display_info(self):
+#         print(f"Title : {self.title} \nAuthor : {self.author} \nYear : {self.year}")
+# class library_id(Book):
+#     def __init__(self, title, author, year, library_id, available):
+#         super().__init__(title, author, year)
+#         self.library_id = library_id
+#         self.available = available
 
-    def display_info(self):
-        super().display_info()
-        # if self.available == True:
-        #     self.available = "Available"
-        # else:
-        #     self.available = "Not Available"
-        status = "Available" if self.available else "Not Available"
-        print(f"Library ID : {self.library_id} \nStatus : {status}")
+#     def display_info(self):
+#         super().display_info()
+#         # if self.available == True:
+#         #     self.available = "Available"
+#         # else:
+#         #     self.available = "Not Available"
+#         status = "Available" if self.available else "Not Available"
+#         print(f"Library ID : {self.library_id} \nStatus : {status}")
 
-LibraryBook = library_id("The Wet Pillow", "Sai Venkata Raja", 2026, 1234, available=True)
-LibraryBook2 = library_id("The Endless Whispers", "Abdul Sameer", 2026, 5678,available=True)
-LibraryBook.display_info()
-print()
-LibraryBook2.display_info()
+# LibraryBook = library_id("The Wet Pillow", "Sai Venkata Raja", 2026, 1234, available=True)
+# LibraryBook2 = library_id("The Endless Whispers", "Abdul Sameer", 2026, 5678,available=True)
+# LibraryBook.display_info()
+# print()
+# LibraryBook2.display_info()
+
+
+#Challenge 11 : Magic Methods 
+# class Movie:
+#     def __init__(self, title, director, duration :int):
+#         self.title = title
+#         self.director = director
+#         self.duration = duration
+#     def __str__(self):
+#         return f"Title : {self.title} \nDirector : {self.director} "
+#     def __len__(self):
+#         return self.duration
+# info = Movie("Interstellar", "Christopher Nolan", 168)
+# print(info)
+# print(len(info))
+
+#Challenge 12 : Banking System
+
+# class BankAccount:
+#     def __init__(self, account_holder, balance):
+#         self.account_holder = account_holder
+#         self.__balance = balance
+
+#     def deposit(self, amount):
+#         if amount > 0:
+#             self.__balance += amount
+#             return f"Rs.{amount} deposited successfully"
+#         else:
+#             return "Invalid deposit amount"
+
+#     def withdraw(self, amount):
+#         if amount <= 0:
+#             return "Invalid withdrawal amount"
+#         elif amount > self.__balance:
+#             return "Not enough money"
+#         else:
+#             self.__balance -= amount
+#             return f"Rs.{amount} withdrawn successfully"
+
+#     def get_balance(self):
+#         return self.__balance
+
+
+# class SavingsAccount(BankAccount):
+#     def __init__(self, account_holder, balance, interest_rate):
+#         super().__init__(account_holder, balance)
+#         self.interest_rate = interest_rate
+
+#     def apply_interest(self):
+#         interest = self.get_balance() * self.interest_rate
+#         self.deposit(interest)
+#         return f"Interest Rs.{interest:.2f} applied successfully"
+
+#     def __str__(self):
+#         return (
+#             f"Account Holder: {self.account_holder}\n"
+#             f"Balance: Rs.{self.get_balance():.2f}\n"
+#             f"Interest Rate: {self.interest_rate * 100}%"
+#         )
+
+
+# my_acc = SavingsAccount("Sai", 5000, 0.05)
+# print(my_acc)
+# print(my_acc.deposit(500))
+# print(my_acc.withdraw(200))
+# print(my_acc.apply_interest())
+# print(my_acc)
+
+
+# Challenge 13.2 : Bank System : DO this later 
+
+# class BankSystem:
+#     def __init__(self, account_holder, balance):
+#         self.account_holder = account_holder
+#         self.__balance = balance
+        
+#     def deposit(self, amount):
+#         if amount < 0:
+#             return "Amount Entry is Invalid"
+#         else:
+#             self.__balance += amount
+#             return f"Amount Rs.{amount} Deposited successfully"
+        
+#     def withdraw(self, amount):
+#         if amount <=0:
+#             return "Withdrawal Can't be processed"
+#         elif amount > self.__balance:
+#             return "Insufficient Balance"
+#         else:
+#             self.__balance -= amount
+#             return f"Amount Rs.{amount} withdrawed Successfully"
+#     def get_balance(self):
+#         return self.__balance
+   
+# class SavingsAccount(BankSystem):
+#     def __init__(self, account_holder, balance, interest_rate):
+#         super().__init__(account_holder, balance)
+#         self.interest_rate = interest_rate
+
+#     def apply_interest(self):
+#         interest = self.get_balance() * self.interest_rate
+#         self.deposit(interest)
+#         return f"Interest Rs.{interest:.2f} applied successfully"
+#     def __str__(self):
+#             return (
+#             f"Account Holder : {self.account_holder}\n"
+#             f"Balance : {self.get_balance():.2f}\n"
+#             f"Interest Rate : {self.interest_rate}"
+#         )
+
+# class CheckingAccount(BankSystem):
+#     def __init__(self, account_holder, balance):
+#         super().__init__(account_holder, balance)
+#         self.free_withdraws = 3 
+#         self.withdrawals_made = 0
+#         self.withdrawal_fee = 10
+
+#     def withdraw(self, amount):
+#         if amount <= 0:
+#             return "Withdrawal Cannot be processed"
+#         elif amount > self.__balance:
+        
+
+# my_acc = SavingsAccount("Sai", 5000, 0.05)
+# print(my_acc.deposit(500))
+# print(my_acc.withdraw(1000))
+# print(my_acc.apply_interest())
+# print(my_acc)
+
+# Challenge 14 : Polymorphism 
+# Eccomerce payment gateway
+class PaymentMethod:
+    def __init__(self):
+        pass
+    def process(amount):
+        return "process"
+
+class CreditCardPayment(PaymentMethod):
+    

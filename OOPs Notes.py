@@ -91,36 +91,108 @@
 # It is like aquiring properties from parent to child 
 # It helps in code reuse, extensibility and modeling real world relationships 
 # syn :
-class Parent:
-    def method1(self):
-        print("Method of Parent")
+# class Parent:
+#     def method1(self):
+#         print("Method of Parent")
 
-class Child(Parent):
-    def method2(self):
-        print("Method of Child")
+# class Child(Parent):
+#     def method2(self):
+#         print("Method of Child")
     
-obj = Child()
-obj.method1()
-obj.method2()
+# obj = Child()
+# obj.method1()
+# obj.method2()
         
-# Example : 
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age 
+# # Example : 
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age 
 
-    def greet(self):
-        print(f"Hi, I'm {self.name} and I'm {self.age} years old.")
+#     def greet(self):
+#         print(f"Hi, I'm {self.name} and I'm {self.age} years old.")
 
-class Student(Person):
-    def __init__(self,name,age, studend_id):
-        super().__init__(name, age)   # super keyword is used to call methods from the parent class
-        self.student_id = studend_id
+# class Student(Person):
+#     def __init__(self,name,age, studend_id):
+#         super().__init__(name, age)   # super keyword is used to call methods from the parent class
+#         self.student_id = studend_id
     
-    def show_id(self):
-        print(f"My Student ID is {self.student_id}")
+#     def show_id(self):
+#         print(f"My Student ID is {self.student_id}")
         
-obj1 = Student("Sai", 23, 4017)
-obj1.show_id()
-obj1.greet()
+# obj1 = Student("Sai", 23, 4017)
+# obj1.show_id()
+# obj1.greet()
           
+
+# -------------------------- Magic Keywords -------------------------------
+# Magic methods are special methods that let you define how your objects behave with built-in python operations
+# __str__ for printing 
+# by default when we print an object , python gives us a memory address 
+# class Book:
+#     def __init__(self, title):
+#         self.title = title
+
+# b = Book("The End")
+# print(b)        
+
+# We can fix this using __str__
+# class Book:
+#     def __init__(self, title):
+#         self.title = title
+#     def __str__(self):
+#         return f"The Title : {self.title}"
+# b = Book("The end")
+# print(b)
+
+# __len__ : if we want to define how length behaves for custom class
+# class BookShelf:
+#     def __init__(self, books):
+#         self.books = books
+#     def __len__(self):
+#         return len(self.books)
+# shelf = BookShelf(["Book A", "Book B", "Book C"])
+# print(len(shelf))
+
+
+# ------------------------------ Polymorphism ------------------------------------
+# Polymorphism allows methods to do different things based on the object it is acting upon,
+# Essentially it is the ability to redefine methods in derived class
+# In python, we commonly see polymorphism in the form of method overriding  
+# Ex : 
+# class Shape:
+
+#     def calculate_area(self):
+#         pass
+
+# class Circle(Shape):
+
+#     def __init__(self, radius):
+#         self.radius = radius 
+
+#     def calculate_area(self):
+#         return 3.14 * (self.radius ** 2)
+    
+# class Rectangle (Shape):
+#     def __init__(self, l, b):
+#         self.length = l
+#         self.breadth = b
+
+#     def calculate_area(self):
+#         return self.length * self.breadth
+    
+# Shapes =  [ Circle(5), Rectangle(5,4) ]
+# for shape in Shapes:
+#     print(f"Area : {shape.calculate_area()}")
+
+
+# --------------------------------- Abstract class ---------------------------------
+# an abstract class in Python is like that plan sheet.
+# You can’t make it into a real object by itself—you have to write special classes (subclasses) that complete the plan by 
+# adding the real parts and details.
+
+#ex : Notification delivery system
+# @abstractmethod
+# def send(self, message: str) -> str:
+#     """Send a message and return a status string"""
+#     pass

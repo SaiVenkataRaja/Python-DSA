@@ -1,3 +1,5 @@
+# Python qs from sheet
+
 #Find the smallest element in an array
 # arr = {2,5,1,3,7}
 # converted = list(arr)
