@@ -11,3 +11,47 @@
 
 # print(search(["sai", "venkata", "raja"], "sai"))
 # print(search(["sai", "venkata", "raja"], "John cena"))
+
+# Challenge 2 : selection sort 
+# Sort the following list using Selection Sort manually (write the list after each full outer loop):
+# def selection_sort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         min_index = i
+#         for j in range(i+1, n):
+#             if arr[j] < arr[min_index]:
+#                 min_index = j
+#         arr[i], arr[min_index] = arr[min_index], arr[i]  
+#         print(f"After swapping index {i} and {min_index}: {arr}")
+#     return arr
+
+# arr = [8, 3, 5, 1, 4]
+# print(selection_sort(arr))
+
+# Challenge 3 : Fibonacci series : Recursion
+# The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1.
+# def fibonacci(n):
+#     if n == 0:
+#         return 0
+#     elif n ==1 :
+#         return 1 
+#     else: 
+#         return fibonacci(n-1) + fibonacci(n-2)
+# print(fibonacci(10))
+
+# Challenge 3.2 : Recursion 
+# Write a recursive function that takes an integer and returns the sum of its digits.
+# def fibo(n):
+#     if n == 0:
+#         return 0 
+#     else: 
+#         return (n % 10) + fibo(n // 10)
+# print(fibo(1234))
+
+# Challenge 3.3 : Write a recursive function that takes an integer and returns the reversed number.
+# def reverse_string(s):
+#     if len(s) == 0:
+#         return s
+#     else:
+#         return reverse_string(s[1:]) + s[0]
+# print(reverse_string("sai"))
