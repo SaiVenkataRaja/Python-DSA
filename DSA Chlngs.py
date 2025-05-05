@@ -102,33 +102,41 @@
 # After reversing, the head of the list should point to the last node, 
 # and all the nodes should point to their previous node. 
 
-class Node:
-    def __init__(self, data):
-        self.data =data 
-        self.next = None 
+# class Node:
+#     def __init__(self, data):
+#         self.data =data 
+#         self.next = None 
     
-class LinkedList: 
-    def __init__(self):
-        self.head = None
+# def print_list(head):
+#     while head:
+#         print(head.data, end=" -> ")
+#         head = head.next
+#     print("None")
 
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-    def reverse(self, data):
-        
+# def reversed_lst(head):
+#     prev = None
+#     curr = head 
 
-    def print(self):
-        current_node = self.head
-        while current_node:
-            print(current_node.data, end=" -> " )
-            current_node = current_node.next
+#     while curr:
+#         next_node = curr.next
+#         curr.next = prev
+#         prev = curr
+#         curr = next_node
+#     return prev 
 
-        print("None")
+# head = Node(1)
+# head.next = Node(2)
+# head.next.next = Node(3)
+# head.next.next.next = Node(4)
 
-ll = LinkedList()
-ll.insert_at_beginning(40)
-ll.insert_at_beginning(30)
-ll.insert_at_beginning(20)
-ll.insert_at_beginning(10)
-ll.print()
+# print("Original List : ")
+# print_list(head)
+# reversed_head = reversed_lst(head)
+# print("Reversed List : ")
+# print_list(reversed_head)
+
+# Insertion at the beginning 
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None

@@ -1,0 +1,66 @@
+Django is a Python framework that makes it easier to create websites using Python
+Django emphasizes  reusability of componenets,also referred to as DRY (Don't Repeat Yourself), and comes with ready-to-use features like login system, database connection and CRUD Operations
+Django is especially helpful for database driven websites.
+
+Why use Django :
+It's built on Python — clean, readable syntax
+Comes with an admin panel — manage content easily
+Built-in security — protects against common threats
+ORM (Object Relational Mapper) — talk to databases using Python
+Scalable — used by Instagram, Pinterest, Disqus
+Django follows MVT (Model View Template) design pattern
+Model - The data you want to present, usually data from a database, Model provides data from the database
+        The Most common way to extract data from a database is SQL
+        The models are usually located in a file called models.py 
+
+View - A request handler that returns the relevent template and content - based on the request from the user
+        A view is a function or method that takes http requests as arguments, imports the relevent models and finds out what data send to the template and returns the final result 
+        THe views are usually located in a file called views.py
+
+Template - A text file (like an HTML file) containing the layout of the webpage with logic on how to display the data
+        A Template is a file where you describe how the result should be represented
+
+Getting Started 
+-> Django requires python, check if the system has python --> python --version (in command prompt)
+
+to install Django, we must use a package manager like pip, which is included in python 3.4 --> pip --version
+
+-------- Virtual Environment --------
+Step 1 - Create a Virtual Environment -> python -m venv myworld
+    Activate it - myworld/Scripts/activate.bat (we must activate the virtual environment every time we open the command prompt to work on the project )
+
+Step 2 - Intall Django (before doing this , ensure that vitual environment is activated )
+    python -m pip install Django (or) pip install django
+    check version -> django-admin --version
+
+Step 3 - Create Django project 
+    -> django-admin startproject my_project
+
+Step 4 - Run the Development Server (or) Run the Django project
+    navigate to the project cd /project and 
+    -> python manage.py runserver
+
+------------ Create app ---------------
+Step 5 - Create Django app 
+    -> pythom manage.py startapp members 
+
+{GPT 
+Step 6 - Register the App in project settings, (do this in vscode )
+    -> open my_project/settings.py, find the installed_apps list and add members to it
+}
+
+-------------- Django Views --------------
+-> Django Views are the functions that take http requests and returns http response (Like HTML documents)
+-> A Webpage that uses Django is full of views with different tasks and missions 
+-> Views are usually put in views.py file located in app's folder 
+
+
+Step 7 -> This step connents the django app logic (in python) to the URL's that a user visits in the browser
+-> Open members/views.py and add this 
+    from django.http import HttpResponse
+    def home(request):
+        return HttpResponse("Hello, welcome to the Members app!")
+
+-------------- Django URL ----------------
+
+-> Create urls.py in members app 
