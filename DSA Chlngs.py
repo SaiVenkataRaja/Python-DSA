@@ -55,3 +55,80 @@
 #     else:
 #         return reverse_string(s[1:]) + s[0]
 # print(reverse_string("sai"))
+
+
+# Challenge 4 : Time complexity 
+# def something(arr):
+#     for i in arr:
+#         print(i)
+#         print()
+#     for j in arr:
+#         for k in arr:
+#             for l in arr:
+#                 print(j, k, l)
+#         print()
+   
+# something([1,2,3,4,5])
+
+# Linked List Practice : 
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None 
+    
+#     def insert_at_beginning(self, data):
+#         new_node = Node(data)
+#         new_node.next = self.head
+#         self.head = new_node
+
+#     def print(self) : 
+#         current_node = self.head
+#         while current_node:
+#             print(current_node.data, end=" -> ")
+#             current_node = current_node.next
+#         print("None")
+# ll = LinkedList()
+# ll.insert_at_beginning(10)
+# ll.insert_at_beginning(20)
+# ll.insert_at_beginning(30)
+# ll.print()
+
+# Challenge 5 : Linked List 
+# Write a function to reverse a singly linked list.
+# After reversing, the head of the list should point to the last node, 
+# and all the nodes should point to their previous node. 
+
+class Node:
+    def __init__(self, data):
+        self.data =data 
+        self.next = None 
+    
+class LinkedList: 
+    def __init__(self):
+        self.head = None
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    def reverse(self, data):
+        
+
+    def print(self):
+        current_node = self.head
+        while current_node:
+            print(current_node.data, end=" -> " )
+            current_node = current_node.next
+
+        print("None")
+
+ll = LinkedList()
+ll.insert_at_beginning(40)
+ll.insert_at_beginning(30)
+ll.insert_at_beginning(20)
+ll.insert_at_beginning(10)
+ll.print()
