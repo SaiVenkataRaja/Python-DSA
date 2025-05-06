@@ -1,4 +1,4 @@
-Django is a Python framework that makes it easier to create websites using Python
+Django is a Python framework that makes it easier to create websites using Python (framework is a combination of certain components and packages )
 Django emphasizes  reusability of componenets,also referred to as DRY (Don't Repeat Yourself), and comes with ready-to-use features like login system, database connection and CRUD Operations
 Django is especially helpful for database driven websites.
 
@@ -8,6 +8,7 @@ Comes with an admin panel — manage content easily
 Built-in security — protects against common threats
 ORM (Object Relational Mapper) — talk to databases using Python
 Scalable — used by Instagram, Pinterest, Disqus
+
 Django follows MVT (Model View Template) design pattern
 Model - The data you want to present, usually data from a database, Model provides data from the database
         The Most common way to extract data from a database is SQL
@@ -33,14 +34,14 @@ Step 2 - Intall Django (before doing this , ensure that vitual environment is ac
     python -m pip install Django (or) pip install django
     check version -> django-admin --version
 
-Step 3 - Create Django project 
-    -> django-admin startproject my_project
+Step 3 - Create Django project ------------
+    -> django-admin startproject my_tennis_cub
 
 Step 4 - Run the Development Server (or) Run the Django project
     navigate to the project cd /project and 
     -> python manage.py runserver
 
------------- Create app ---------------
+------------ Create app --------------- This contains homepage, forms , database etc 
 Step 5 - Create Django app 
     -> pythom manage.py startapp members 
 
@@ -63,4 +64,38 @@ Step 7 -> This step connents the django app logic (in python) to the URL's that 
 
 -------------- Django URL ----------------
 
--> Create urls.py in members app 
+-> Create urls.py in members app and type this code 
+        from django.urls import path
+        from . import views
+
+        urlpatterns = [
+            path('members/', views.members, name='members'),
+         ]
+-> Connect / include the App's URL to the main project 
+    in my_project folder inside urls.py add this 
+    from django.contrib import admin
+    from django.urls import path, include  #  make sure to import include
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('members.urls')),  # oute root URL to members app
+    ]
+
+-------------- Django Template ------------------
+Step 8 -----
+We learnt that the result should be in HTML, and it should be created in a template 
+1 -> Create template folder inside members folder, and create a HTML file named home.html
+2 -> Open the HTML file and add some content
+3 -> Modify the view 
+    open the views.py in members folder and replace its content with this : 
+   
+    from django.shortcuts import render
+
+    def index(request):
+        return render(request, 'members/home.html')
+4 -> Make sure Django can find your app's template
+    In settings.py ensure 'APP_DIRS' : True is set in the TEMPLATES settings 
+
+
+----------------- Django Models ----------------------
+In Django , data is created in objects called Models and is actually tables in a database
