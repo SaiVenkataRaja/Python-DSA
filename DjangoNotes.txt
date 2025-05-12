@@ -54,7 +54,7 @@ Step 6 - Register the App in project settings, (do this in vscode )
 -> Django Views are the functions that take http requests and returns http response (Like HTML documents)
 -> A Webpage that uses Django is full of views with different tasks and missions 
 -> Views are usually put in views.py file located in app's folder 
-
+    (View builds a webpage when someone asks for it)
 
 Step 7 -> This step connents the django app logic (in python) to the URL's that a user visits in the browser
 -> Open members/views.py and add this 
@@ -63,7 +63,7 @@ Step 7 -> This step connents the django app logic (in python) to the URL's that 
         return HttpResponse("Hello, welcome to the Members app!")
 
 -------------- Django URL ----------------
-
+(It tells Django which view to show when someone visits a URL.)
 -> Create urls.py in members app and type this code 
         from django.urls import path
         from . import views
@@ -81,8 +81,8 @@ Step 7 -> This step connents the django app logic (in python) to the URL's that 
         path('', include('members.urls')),  # oute root URL to members app
     ]
 
--------------- Django Template ------------------
-Step 8 -----
+-------------- Django Template ------------------ (It’s a fancy HTML file that shows info in a beautiful way.)
+Step 8 ----- 
 We learnt that the result should be in HTML, and it should be created in a template 
 1 -> Create template folder inside members folder, and create a HTML file named home.html
 2 -> Open the HTML file and add some content
@@ -98,4 +98,158 @@ We learnt that the result should be in HTML, and it should be created in a templ
 
 
 ----------------- Django Models ----------------------
-In Django , data is created in objects called Models and is actually tables in a database
+In Django , data is created in objects called Models and is actually tables in a database (Simply Model stores your data)
+A model is a python class that represents a table in your database
+Django model setup 
+step 1 -> define a class that inherits from models.Model in members/models.py
+step 2 -> make migration - python manage.py makemigrations
+step 3 -> migrate to create database table - python manage.py migrate
+
+------------------ Django Insert Data ------------------
+
+
+1. Using Django shell 
+    a. open terminal and activate -> myworld\Scripts\activate.bat
+    b. Enter Django shell -> python manage.py shell
+    c. Enter this : 
+        from members.models import Member  #This tells Django , that i want to use the toy model from my members app
+        Member.objects.create(firstname='Sai', lastname='Paleti') (or)
+        Member.objects.all()
+    d. Add Record by executing these two lines 
+        member = Member(firstname='Emil', lastname='Refsnes')   
+        member.save()
+    e. Evaluate this command to see, if the member table got a member:
+        Member.objects.all().values()
+Adding Multiple Records 
+    member1 = Member(firstname='Tobias', lastname='Refsnes')
+    member2 = Member(firstname='Linus', lastname='Refsnes')
+    member3 = Member(firstname='Lene', lastname='Refsnes')
+    member4 = Member(firstname='Stale', lastname='Refsnes')
+    member5 = Member(firstname='Jane', lastname='Doe')
+    members_list = [member1, member2, member3, member4, member5]
+    for x in members_list:
+    x.save()
+
+then : 
+    Member.objects.all().values()
+
+----------------- Update Data -------------------------
+-> to update we must get the record that have to be updated
+    from members.models import Member
+    x = Member.objects.all()[2]
+
+-> x will now represent the member at index 2
+    x.firstname -> gives the result 
+
+-> Now change 
+    x.firstname = "Bharat"
+    x.save()
+
+-> verify : 
+    Member.objects.all().values()
+
+----------------- Delete Data -------------------------
+-> Get the record that we want to Delete
+    from members.models import Member
+    x = Member.objects.all()[2]
+
+-> x will now represent the Member of index 2 
+    x.firstname
+
+-> x.delete()
+-> Verify :
+    Member.objects.all().values()
+
+
+----------------- Update Model --------------------------
+-> to add a field to a table after it is created, open the models.py file, and make your change 
+        from django.db import models
+        class Member(models.Model):
+            firstname = models.CharField(max_length=255)
+            lastname = models.CharField(max_length=255)
+            phone = models.IntegerField()
+            joined_date = models.DateField()
+            
+-> Now, tell the Django we have an update 
+    python manage.py makemigrations members 
+
+    This will give 2 options to select , selected 2nd
+
+-> Add null=True in models.py and make migration again 
+-> Then run the migrate command
+
+-> Insert data 
+    python manage.py shell
+---------- Filter 
+
+Student.objects.filter(name='Sai').values()
+by id 
+Student.objects.get(id=1)
+----------- looping 
+students = Student.objects.all()
+for s in students:
+print(s.name, s.age, s.email)
+
+------------------------- Forms -----------------------------
+-> Create a form in forms.py 
+    from django import forms 
+    class Nameform(forms.form):
+        your_name = forms.CharField(label='Your Name', max_length=100)
+
+-> Handle GET and POST in views.py
+    from django.shortcuts import render 
+    from .forms import Nameform
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            return render(request, 'home.html', {'name': name})
+    else:
+        form = NameForm()
+    return render(request, 'home.html', {'form' : form})
+
+
+
+----------------------- Model Forms ----------------------------
+A ModelForm automatically creates a Django form based on a model - including fields, validations and saving logic
+
+Step 1 -> Create a Student Form using ModelForm in forms.py 
+Step 2 -> Use the form in the view (views.py)
+Step 3 -> Create a Template (Create a html file )
+Step 4 -> Add URL pattern
+
+----------------------- Display All Students records --------------------
+Step 1 -> Create the view in views.py 
+Step 2 -> Create the Template (HTML file and add code)
+Step 3 -> Add the URL in urls.py 
+
+------------ Edit Existing Student Record 
+Step 1 -> Add a Url Pattern 
+Step 2 -> Create the view 
+
+
+--------------------- Display Data ------------------------
+Create Template and view 
+Since , we have created models with the fields and data we want in them , its time to display the data in a webpage 
+-> Create all_members.html in /templates/ folder : 
+    add html to the file 
+-> Modify the view 
+
+------------ Add Link to Details 
+Now, here we add a details page, where we can list more details about a specific member
+-> Create a new template in the same folder and add html into the file 
+-> Create a new view in the views.py, that wil deal with incoming requests to the /details/ url :
+-> Add URL patter ns in members/urls.py  and add a path of a specific member
+
+-> in the url give members/1
+
+
+------------- Add master template
+
+Master template - Its like a blueprint or skeleton that all other pages follow. It has 
+        The common HTML structure <html>,<head>,<body>
+        shared elements like the title, css files and navigation menu
+        A placeholder where each page can insert its unique content
+Steps : 
+-> Create master.html in the template members 
+-> Add code to master.html

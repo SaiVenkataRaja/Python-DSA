@@ -124,15 +124,15 @@
 #         print("Invalid Input, Please enter numbers")
 # actions()
 
-#Contact Extractor : 
-import re 
-text = "Call me at 987-654-3210 or email me at hello@example.com"
-phonePat = r"\d{3}-\d{3}-\d{4}"
-emailPat = r"[\w\.-]+@[\w\.-]+\.\w+"
-phones = re.findall(phonePat, text)
-emails = re.findall(emailPat, text)
-print("Phone Numbers :", phones)
-print("Emails: ", emails)
+# #Contact Extractor : 
+# import re 
+# text = "Call me at 987-654-3210 or email me at hello@example.com"
+# phonePat = r"\d{3}-\d{3}-\d{4}"
+# emailPat = r"[\w\.-]+@[\w\.-]+\.\w+"
+# phones = re.findall(phonePat, text)
+# emails = re.findall(emailPat, text)
+# print("Phone Numbers :", phones)
+# print("Emails: ", emails)
 # Mini Json Converter 
 # import json
 # employee = {"name": "Sai", "age": 25, "dept": "IT"}
@@ -140,19 +140,50 @@ print("Emails: ", emails)
 # print(json_con)
 
 #Birthday countdown
-from datetime import datetime
-birthday = datetime(2025, 8, 21)
-now = datetime.now()
-if birthday < now:
-    birthday = birthday.replace(year = now.year + 1)
-print(f"Days left until birthday : {(birthday - now).days }")
+# from datetime import datetime
+# birthday = datetime(2025, 8, 21)
+# now = datetime.now()
+# if birthday < now:
+#     birthday = birthday.replace(year = now.year + 1)
+# print(f"Days left until birthday : {(birthday - now).days }")
 
 #Tuple reverser 
-tup = (1, 2, 3, 4)
-tup_rev = list(tup[::-1])
-tup_mod = list()
-for i in tup_rev:
-    j = i*i
-    if j not in tup_mod:
-        tup_mod.append(j)
-print(tuple(tup_mod))
+# tup = (1, 2, 3, 4)
+# tup_rev = list(tup[::-1])
+# tup_mod = list()
+# for i in tup_rev:
+#     j = i*i
+#     if j not in tup_mod:
+#         tup_mod.append(j)
+# print(tuple(tup_mod))
+
+
+# Given two integer numbers,
+# write a Python program to return their product only if the product is equal to or lower than 1000. Otherwise, return their sum.
+# num1 = int(input("Enter the first number : "))
+# num2 = int(input("Enter the second number : "))
+# if (num1 * num2) <= 1000:
+#     print(num1 * num2)
+# else:
+#     print(num1+num2)  
+
+# Write Python code to iterate through the first 10 numbers and, in each iteration,
+# print the sum of the current and previous number.
+# previous_num = 0
+# for i in range(1, 11):
+#     sum1 = previous_num + i
+    
+#     print(f"Current Number {i} Previous number {previous_num} Sum : {sum1}")
+#     previous_num = i
+
+
+# Write a Python code to accept a string from the user and display characters present at an even index number.
+
+str = input("Enter a string : ")
+# for i in range(0, len(str)-1, 2):
+#     print(str[i])
+#or
+
+for i in str[0::2]:
+    print(i)
+
