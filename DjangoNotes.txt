@@ -226,7 +226,11 @@ Step 3 -> Add the URL in urls.py
 ------------ Edit Existing Student Record 
 Step 1 -> Add a Url Pattern 
 Step 2 -> Create the view 
-
+------------ Delete a student 
+Step 1 -> Add url pattern : path('student/<int:id>/delete/', views.delete_student, name='delete_student'),
+Step 2 -> Create the view in views.py
+Step 3 -> Create the template (html file)
+Step 4 -> Add Delete Links to list page 
 
 --------------------- Display Data ------------------------
 Create Template and view 
@@ -253,3 +257,73 @@ Master template - Its like a blueprint or skeleton that all other pages follow. 
 Steps : 
 -> Create master.html in the template members 
 -> Add code to master.html
+
+
+
+
+
+
+
+
+
+---------------------------- Django Authentication System --------------------------------
+1. Create User accounts
+2. Log Users In and Out 
+3. Protect Views (Login Required)
+4. Display Logged-in User info
+5. Optional: Extend the user model 
+
+
+Step 1 -> Set up user Registration (sign-up)
+    1. Create a Registration form in forms .py 
+    2. Create a Registration View 
+        class RegisterForm(UserCreationForm):
+        email = forms.EmailField()
+
+        class Meta:
+            model = User
+        fields = ['username', 'email', 'password1', 'password2']
+    3. Create the template
+        <div class="regi">
+            <h2>Register</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    4. Add the url pattern 
+        path('register/', views.register, name='register'),
+
+Step 2 -> Implement Login and Logout 
+    1. Create Login view in views.py 
+    2. Create Logout view 
+    3. Create login template 
+    4. All urls 
+
+Step 3 -> Login (Required) protection  (Restrict pages to logged in users)
+    1. Import the decorator in views.py 
+    2. Protect sensitive views , the view that you want to should have @login_required(login_url='login')
+
+Step 4 -> Show logged-in user info and logout link 
+    1. Update the base or main template (students_link) with this 
+        {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }}</p>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+
+    2. Ensure user is available in templates
+    3. Test it 
+
+
+
+
+
+
+------------------------------------ Class Based Views --------------------------------------------
+Class-based views are more advanced and flexible approach to handle views in django. Unlike function based 
+views (FBVs), which are defined using a function, CBVs use classes. They allow form more reusability and Organization,
+especially when you have repetitive patterns in ypur views 
+Why CBV - Reusability, extensibility 
